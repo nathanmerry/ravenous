@@ -58,7 +58,6 @@ class App extends React.Component {
       <div className="App">
         <h1 className="header-secondary">ravenous</h1>
         <SearchBarContainer searchYelp={this.searchYelp} test={this.test} />
-        <a onMouseEnter={this.hoverMapOver} onMouseOut={this.hoverMapOut}>test</a>
         <div className="main">
           <div className="column-small">
             <div className="sticky">

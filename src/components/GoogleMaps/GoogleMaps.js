@@ -23,11 +23,43 @@ export class MapContainer extends Component {
 
   setLocations() {
     return this.props.locations.map((item, index) => {
-
       const blueMarker =
         "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
       const yellowMarker =
         "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+
+      let markerStyle = {
+        color: item.id === this.props.businessHover ? yellowMarker : blueMarker,
+        size:
+          item.id === this.props.businessHover
+            ? new this.props.google.maps.Size(50, 50)
+            : new this.props.google.maps.Size(30, 30)
+      };
+
+      let InfoWindowHtml = (
+        <div className="marker-container">
+          <div className="marker-column">
+            <img className="img-small" src={item.imageSrc} />
+          </div>
+          <div className="marker-column">
+            <h4 className="header-small">{item.name}</h4>
+            <div className="marker-row">
+              <p>{item.address}</p>
+              <p>
+                {item.city} {item.zipCode}
+              </p>
+            </div>
+            <div className="marker-row">
+              <p className="strong">{item.category}</p>
+              <p>
+                {item.rating}
+                <img className="img-star" src={require("../../star.png")}></img>
+                {item.reviewCount} reviews
+              </p>
+            </div>
+          </div>
+        </div>
+      );
 
       return (
         <Marker
@@ -38,34 +70,14 @@ export class MapContainer extends Component {
             lng: item.longitude
           }}
           onClick={this.onMarkerClick}
-          icon={{ url: (item.id === this.props.businessHover) ? yellowMarker: blueMarker}}
-          name={
-            <div className="marker-container">
-              <div className="marker-centered-container">
-                <img className="img-small" src={item.imageSrc} />
-              </div>
-              <div>
-                <h4 className="header-small">{item.name}</h4>
-                <div className="marker-row">
-                  <p>{item.address}</p>
-                  <p>
-                    {item.city} {item.zipCode}
-                  </p>
-                </div>
-                <div className="marker-row">
-                  <p className="strong">{item.category}</p>
-                  <p>
-                    {item.rating}
-                    <img
-                      className="img-star"
-                      src={require("../../star.png")}
-                    ></img>
-                    {item.reviewCount} reviews
-                  </p>
-                </div>
-              </div>
-            </div>
-          }
+          onMouseover={() => {
+            return this.onMarkerClick;
+          }}
+          icon={{
+            url: markerStyle.color,
+            scaledSize: markerStyle.size
+          }}
+          name={InfoWindowHtml}
         />
       );
     });
@@ -81,8 +93,6 @@ export class MapContainer extends Component {
       activeMarker: marker,
       showingInfoWindow: true
     });
-    console.log(props);
-    console.log(marker);
   };
 
   onClose = props => {

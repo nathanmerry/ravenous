@@ -4,7 +4,6 @@
 }
 
 .google-maps {
- 
 }
 
 .map-container div {
@@ -16,10 +15,8 @@
 }
 
 .marker-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   padding: 5px;
-  grid-column-gap: 20px;
   font-size: 0.8rem;
 }
 
@@ -34,11 +31,6 @@
   font-size: 1rem;
   font-weight: 600;
 }
-
-.marker-centered-container {
-  text-align: center;
-}
-
 .marker-row {
   margin: 0 0 10px 0;
   line-height: 19px;
@@ -46,4 +38,8 @@
 
 .strong {
   font-weight: 600;
+}
+
+.marker-column {
+  padding: 0 10px;
 }
