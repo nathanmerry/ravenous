@@ -156,7 +156,6 @@ class SearchBarContainer extends React.Component {
 
   renderAutoCompletion(arr) {
     if (arr[0] === undefined) {
-      console.log("hello");
     } else {
       if (this.state.location) {
         const listItems = arr[0].map(item => {
@@ -248,9 +247,11 @@ class SearchBarContainer extends React.Component {
     });
   }
 
+
+
   render() {
     return (
-      <div>
+      <div className="Search-bar-container">
         <SearchBar2
           renderSortByOptions={this.renderSortByOptions()}
           handleTermChange={this.handleTermChange}
@@ -262,6 +263,7 @@ class SearchBarContainer extends React.Component {
           handleLocationChange={this.handleLocationChange}
           handleKeyPress={this.handleKeyPress.bind(this)}
           handleSearch={this.handleSearch}
+
         />
         <p>
           <br />

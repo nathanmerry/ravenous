@@ -8,6 +8,7 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
+
 .Business .image-container {
   height: 16.66rem;
   margin-bottom: 1rem;
@@ -25,10 +26,11 @@
   justify-content: space-between;
 }
 
+
 .Business-information p {
   font-size: 0.88rem;
   font-weight: 300;
-  line-height: 1rem;
+  line-height: 1.1rem;
 }
 
 .Business-address {
@@ -61,4 +63,15 @@
 .Business-reviews .rating {
   font-size: 0.88rem;
   line-height: 1rem;
+  display: flex;
+}
+
+.img-star {
+  width: 15px;
+  height: 15px;
+  margin: 0 8px 0 3px;
+}
+
+.font-normal {
+  font-weight: 400;
 }

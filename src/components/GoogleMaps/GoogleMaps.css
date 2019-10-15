@@ -1,0 +1,49 @@
+.map-container {
+  margin: 110px 0 0 0;
+  top: 0;
+}
+
+.google-maps {
+ 
+}
+
+.map-container div {
+  max-width: 565px !important;
+}
+
+.image-small {
+  width: 100px;
+}
+
+.marker-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px;
+  grid-column-gap: 20px;
+  font-size: 0.8rem;
+}
+
+.img-small {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 10px;
+}
+
+.header-small {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.marker-centered-container {
+  text-align: center;
+}
+
+.marker-row {
+  margin: 0 0 10px 0;
+  line-height: 19px;
+}
+
+.strong {
+  font-weight: 600;
+}

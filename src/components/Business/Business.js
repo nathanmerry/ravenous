@@ -4,8 +4,12 @@ import "./Business.css";
 class Business extends React.Component {
   render() {
     return (
-
-      <div className="Business">
+      <div
+        onMouseOver={() => this.props.hoverOver(this.props.business.id)}
+        onMouseOut={this.props.hoverMapOut}
+        className="Business"
+      >
+        {/* <button onMouseOut={this.props.test}>test</button> */}
         <div className="image-container">
           <a
             className="item-links"
@@ -47,8 +51,13 @@ class Business extends React.Component {
           <div className="Business-reviews">
             <h3>{this.props.business.category}</h3>
             <div>
-              <h3 className="rating">{this.props.business.rating} stars</h3>
-              <h3 className="rating">({this.props.business.reviewCount})</h3>
+              <h3 className="rating">
+                {this.props.business.rating}{" "}
+                <img className="img-star" src={require("../../star.png")}></img>
+                <span className="font-normal">
+                  ({this.props.business.reviewCount})
+                </span>
+              </h3>
             </div>
           </div>
         </div>
